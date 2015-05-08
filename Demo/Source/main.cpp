@@ -146,7 +146,9 @@ int main()
 
 #ifdef _DEBUG
 	#ifdef LATENCY
-		std::cout << "[System] Latency : " << dtsec.count() << "ms --------- FPS : " << (1.0/dtsec.count()) << "fps" << std::endl;
+		std::ostringstream oss;
+		oss << "Latency : " << dtsec.count() << "ms --------- FPS : " << (1.0 / dtsec.count()) << "fps";
+		glfwSetWindowTitle(oss.str().c_str());
 	#endif // LATENCY
 #endif
 
