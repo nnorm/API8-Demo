@@ -1,0 +1,20 @@
+#pragma once
+
+#include <string>
+#include <iostream>
+#include <bass.h>
+
+class Soundtrack
+{
+public:
+	Soundtrack(std::string filepath);
+	~Soundtrack();
+
+	void play();
+	void stop();
+	void setVolume(float volume);
+	double getDuration();
+
+private:
+	HSTREAM _mp3Stream;
+};
