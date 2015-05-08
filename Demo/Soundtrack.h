@@ -1,8 +1,5 @@
 #pragma once
-
-#include <string>
-#include <iostream>
-#include <bass.h>
+#include "Common.h"
 
 class Soundtrack
 {

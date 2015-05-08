@@ -10,7 +10,7 @@ Uniform::~Uniform()
 {
 }
 
-GLuint Uniform::getUniformLocation()
+GLuint Uniform::getLocation()
 {
 
 	return this->_location;

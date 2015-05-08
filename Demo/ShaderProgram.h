@@ -1,17 +1,8 @@
 #pragma once
-#include <GL\glew.h>
-#include <GL\glfw.h>
-#include <vector>
-#include <map>
-#include <iostream>
+#include "Common.h"
 
-#include "Shader.h"
-#include "Uniform.h"
-
-using std::vector;
-using std::map;
-using std::string;
 class Shader;
+class Uniform;
 
 class ShaderProgram
 {

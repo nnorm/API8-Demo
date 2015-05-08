@@ -1,5 +1,8 @@
 #include "ShaderProgram.h"
 
+#include "Shader.h"
+#include "Uniform.h"
+
 ShaderProgram::ShaderProgram()
 {
 	this->_programId = glCreateProgram();

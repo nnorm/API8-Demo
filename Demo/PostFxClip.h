@@ -1,7 +1,6 @@
 #pragma once
+#include "Common.h"
 
-#include <iostream>
-#include <glm/glm.hpp>
 #include "ShaderProgram.h"
 #include "Buffer.h"
 #include "Uniform.h"

@@ -1,8 +1,5 @@
 #pragma once
-
-#include <GL/glew.h>
-#include <GL/glfw.h>
-#include <iostream>
+#include "Common.h"
 
 enum bufferType
 {

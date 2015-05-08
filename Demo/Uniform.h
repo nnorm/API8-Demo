@@ -1,15 +1,5 @@
 #pragma once
-#include <GL/glew.h>
-#include <GL/glfw.h>
-#include <iostream>
-#include <glm/glm.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
-using std::string;
-using glm::vec2;
-using glm::vec3;
-using glm::vec4;
-using glm::mat4;
+#include "Common.h"
 
 
 class Uniform
@@ -26,7 +16,7 @@ public:
 	Uniform(string name, unsigned int program);
 	~Uniform();
 
-	unsigned int getUniformLocation();
+	unsigned int getLocation();
 	string getName();
 
 private:

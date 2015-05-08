@@ -1,5 +1,6 @@
 #include "PostFxClip.h"
 
+#include "Shader.h"
 
 PostFxClip::PostFxClip(Shader* fragmentShader, std::vector<Uniform> uniformList)
 {
