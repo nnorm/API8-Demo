@@ -53,8 +53,6 @@ int main()
 	glClearDepth(1.0f);
 
 	/* Testing area */
-
-	Model model("assets/models/plane.obj");
 	static float vertices[] = { -1.0f, 1.0f, 0.0f, -1.0f, -1.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 0.0f };
 	/* Buffers */
 
@@ -64,17 +62,11 @@ int main()
 	Buffer ibo(EBO);
 
 	posVBO.bind();
-	//glBufferData(GL_ARRAY_BUFFER, model.vertices.size() * sizeof(float), &model.vertices[0], GL_STATIC_DRAW);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	posVBO.unbind();
 
-	/*nrmVBO.bind();
-	glBufferData(GL_ARRAY_BUFFER, model.vertices.size() * sizeof(float), &model.normals[0], GL_STATIC_DRAW);
-	nrmVBO.unbind();*/
-
 	static unsigned int indices[] = { 0, 1, 2, 0, 2, 3 };
 	ibo.bind();
-	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, model.indices.size() * sizeof(unsigned int), &model.indices[0], GL_STATIC_DRAW);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 	ibo.unbind();
 
@@ -83,10 +75,6 @@ int main()
 	posVBO.bind();
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (const void*)0);
-	
-	/*nrmVBO.bind();
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (const void*)0);*/
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	ibo.bind();
@@ -122,9 +110,6 @@ int main()
 	std::chrono::duration<double> dsec;
 	std::chrono::duration<double> dtsec;
 
-	//glEnable(GL_DEPTH_TEST);
-	//glEnable(GL_CULL_FACE);
-	//glCullFace(GL_FRONT);
 	glDisable(GL_CULL_FACE);
 
 	//test->play();
@@ -153,7 +138,7 @@ int main()
 #endif
 
 		vao.bind();
-		glDrawElements(GL_TRIANGLES, model.vertices.size(), GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, sizeof(vertices), GL_UNSIGNED_INT, nullptr);
 		vao.unbind();
 
 		program.Unuse();
