@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Buffer.cpp" />
+    <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="PostFxClip.cpp" />
     <ClCompile Include="Rocket.cpp" />
@@ -24,6 +25,7 @@
   <ItemGroup>
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Common.h" />
+    <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="PostFxClip.h" />
     <ClInclude Include="Rocket.h" />
