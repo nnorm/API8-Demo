@@ -18,9 +18,9 @@ void Framebuffer::Bind(int target)
 	glBindFramebuffer(this->_targets[target], this->_id);
 }
 
-void Framebuffer::Unbind()
+void Framebuffer::Unbind(int target)
 {
-
+	glBindFramebuffer(this->_targets[target], 0);
 }
 
 void Framebuffer::AttachTarget(unsigned int target)

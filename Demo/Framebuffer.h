@@ -11,7 +11,7 @@ public:
 	Framebuffer();
 	~Framebuffer();
 	void Bind(int target);
-	void Unbind();
+	void Unbind(int target);
 	void AttachTarget(unsigned int target);
 	void AttachDepthTarget(unsigned int target);
 	unsigned int GetTarget(int i);
