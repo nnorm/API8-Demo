@@ -6,12 +6,10 @@ Framebuffer::Framebuffer()
 	glGenFramebuffers(1, &this->_id);
 }
 
-
 Framebuffer::~Framebuffer()
 {
 	glDeleteFramebuffers(1, &this->_id);
 }
-
 
 void Framebuffer::Bind(int target)
 {

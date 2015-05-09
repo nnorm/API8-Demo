@@ -5,7 +5,7 @@
 PostFxClip::PostFxClip(Shader* fragmentShader, std::vector<Uniform> uniformList)
 {
 	this->_vtxSource = "in vec3 attrVertexPosition;"
-		"in vec3 attrVertexNormal;"
+		"out vec4 OutColor;"
 		"varying vec4 v_pos;"
 		"void main(void) { "
 		"	gl_Position = attrVertexPosition;"

@@ -2,7 +2,7 @@
 #include "Common.h"
 
 #include "ShaderProgram.h"
-#include "Buffer.h"
+#include "Framebuffer.h"
 #include "Uniform.h"
 
 class PostFxClip
@@ -13,8 +13,8 @@ public:
 	void untoggle();
 	~PostFxClip();
 private: 
-	Buffer* _fboInput;
-	Buffer* _fboOutput;
+	Framebuffer* _fboInput;
+	Framebuffer* _fboOutput;
 	Shader* _vtxShader;
 	ShaderProgram* _program;
 	std::vector<Uniform>* _uniforms;
