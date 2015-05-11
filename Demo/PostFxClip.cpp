@@ -2,8 +2,10 @@
 
 #include "Shader.h"
 
-PostFxClip::PostFxClip(Shader* fragmentShader, std::vector<Uniform> uniformList)
+PostFxClip::PostFxClip(Shader* fragmentShader, std::vector<Uniform> uniformList, Framebuffer* input)
 {
+	this->_fboInput = input;
+	this->_fboOutput = new Framebuffer();
 	this->_vtxSource = "in vec3 attrVertexPosition;"
 		"out vec4 OutColor;"
 		"varying vec4 v_pos;"
@@ -28,12 +30,16 @@ PostFxClip::PostFxClip(Shader* fragmentShader, std::vector<Uniform> uniformList)
 
 void PostFxClip::toggle()
 {
+	this->_fboOutput->Bind();
+	this->_fboInput->Bind();
 	this->_program->Use();
 }
 
 void PostFxClip::untoggle()
 {
 	this->_program->Unuse();
+	this->_fboInput->Unbind();
+	this->_fboOutput->Unbind();
 }
 
 PostFxClip::~PostFxClip()
@@ -42,4 +48,6 @@ PostFxClip::~PostFxClip()
 	this->_program->DetachAll();
 	this->_program->~ShaderProgram();
 	this->_vtxShader->~Shader();
+	this->_fboInput->~Framebuffer();
+	this->_fboOutput->~Framebuffer();
 }

@@ -8,7 +8,7 @@
 class PostFxClip
 {
 public:
-	PostFxClip(Shader* fragmentShader, std::vector<Uniform> uniformList);
+	PostFxClip(Shader* fragmentShader, std::vector<Uniform> uniformList, Framebuffer* input);
 	void toggle();
 	void untoggle();
 	~PostFxClip();
