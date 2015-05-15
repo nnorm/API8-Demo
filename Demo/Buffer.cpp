@@ -16,6 +16,9 @@ Buffer::Buffer(bufferType type)
 	case FBO:
 		glGenFramebuffers(1, &this->_id);
 		break;
+	case TFB:
+		glGenBuffers(1, &this->_id);
+		break;
 	default:
 		glGenBuffers(1, &this->_id);
 		break;
@@ -53,6 +56,9 @@ void Buffer::bind()
 	case EBO:
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->_id);
 		break;
+	case TFB:
+		glBindTransformFeedback(GL_TRANSFORM_FEEDBACK_BUFFER, this->_id);
+		break;
 	default:
 		glBindBuffer(GL_ARRAY_BUFFER, this->_id);
 		break;
@@ -74,6 +80,9 @@ void Buffer::unbind()
 		break;
 	case EBO:
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		break;
+	case TFB:
+		glBindTransformFeedback(GL_TRANSFORM_FEEDBACK_BUFFER, 0);
 		break;
 	default:
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
