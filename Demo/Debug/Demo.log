@@ -1,39 +1,15 @@
-﻿Build started 5/14/2015 6:15:37 PM.
+﻿Build started 5/18/2015 11:58:32 AM.
      1>Project "C:\Users\nnorm\Desktop\Code\_API8\API8-Demo\Demo\Demo.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Buffer.cpp Model.cpp PostFxClip.cpp Source\main.cpp
-         Buffer.cpp
-     1>c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : macro redefinition
-                 c:\users\nnorm\desktop\code\_api8\api8-demo\libs\include\gl\glfw.h(74) : see previous definition of 'APIENTRY'
-     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(32): warning C4005: 'WINGDIAPI' : macro redefinition
-                 c:\users\nnorm\desktop\code\_api8\api8-demo\libs\include\gl\glfw.h(91) : see previous definition of 'WINGDIAPI'
-         Generating Code...
-         Compiling...
-         main.cpp
-     1>c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : macro redefinition
-                 c:\users\nnorm\desktop\code\_api8\api8-demo\libs\include\gl\glfw.h(74) : see previous definition of 'APIENTRY'
-     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(32): warning C4005: 'WINGDIAPI' : macro redefinition
-                 c:\users\nnorm\desktop\code\_api8\api8-demo\libs\include\gl\glfw.h(91) : see previous definition of 'WINGDIAPI'
-         Model.cpp
-     1>c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : macro redefinition
-                 c:\users\nnorm\desktop\code\_api8\api8-demo\libs\include\gl\glfw.h(74) : see previous definition of 'APIENTRY'
-     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(32): warning C4005: 'WINGDIAPI' : macro redefinition
-                 c:\users\nnorm\desktop\code\_api8\api8-demo\libs\include\gl\glfw.h(91) : see previous definition of 'WINGDIAPI'
-     1>c:\users\nnorm\desktop\code\_api8\api8-demo\demo\model.cpp(31): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\nnorm\desktop\code\_api8\api8-demo\demo\model.cpp(32): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\nnorm\desktop\code\_api8\api8-demo\demo\model.cpp(33): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\nnorm\desktop\code\_api8\api8-demo\demo\model.cpp(38): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\nnorm\desktop\code\_api8\api8-demo\demo\model.cpp(39): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\nnorm\desktop\code\_api8\api8-demo\demo\model.cpp(40): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\nnorm\desktop\code\_api8\api8-demo\demo\model.cpp(45): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\nnorm\desktop\code\_api8\api8-demo\demo\model.cpp(46): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         PostFxClip.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ParticleSystem.cpp
+         ParticleSystem.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\nnorm\Desktop\Code\_API8\API8-Demo\Debug\Demo.exe" /INCREMENTAL /NOLOGO librocket_clientd.lib OpenGL32.lib GLFW.lib glew32.lib bass.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\nnorm\Desktop\Code\_API8\API8-Demo\Debug\Demo.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\nnorm\Desktop\Code\_API8\API8-Demo\Debug\Demo.lib" /MACHINE:X86 Debug\Buffer.obj
          Debug\Framebuffer.obj
          Debug\Model.obj
+         Debug\Particle.obj
+         Debug\ParticleEmitter.obj
+         Debug\ParticleSystem.obj
          Debug\PostFxClip.obj
          Debug\Rocket.obj
          Debug\Shader.obj
@@ -46,4 +22,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:10.72
+Time Elapsed 00:00:05.79

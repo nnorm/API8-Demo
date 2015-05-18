@@ -14,6 +14,9 @@
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="ParticleEmitter.cpp" />
+    <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="PostFxClip.cpp" />
     <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -27,6 +30,9 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="ParticleEmitter.h" />
+    <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="PostFxClip.h" />
     <ClInclude Include="Rocket.h" />
     <ClInclude Include="Shader.h" />

@@ -1,19 +1,23 @@
 #pragma once
 
 #include <glm/glm.hpp>
-using glm::vec3;
-using glm::vec4;
 
 class Particle
 {
 public:
-	Particle(vec3 initialPosition, vec4 initalColor, float lifeSpan);
+	Particle(glm::vec3* initialPosition, glm::vec4* initalColor, float lifeSpan);
+
+	float getAge();
+	float getLifeSpan();
+	glm::vec3 getPosition();
+	glm::vec4 getColor();
+	glm::vec3 getVelocity();
 	~Particle();
 
 private: 
-	vec3 _position;
-	vec3 _velocity;
-	vec4 _color;
+	glm::vec3 _position;
+	glm::vec3 _velocity;
+	glm::vec4 _color;
 	float _age;
 	float _lifespan;
 };
