@@ -94,7 +94,6 @@ int main()
 	program.Attach(&vtx);
 	program.Attach(&fgt);
 	glBindAttribLocation(program.getProgramID(), 0, "attrVertexPosition");
-	//glBindAttribLocation(program.getProgramID(), 1, "attrVertexNormal");
 	program.Link();
 
 	/****************/
