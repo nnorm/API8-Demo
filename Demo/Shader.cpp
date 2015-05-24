@@ -54,7 +54,7 @@ bool Shader::Compile()
 	bool success = false;
 
 	const char** code = new const char*[this->shader_source.size()];
-	for (int i = 0; i < this->shader_source.size(); i++)
+	for (unsigned int i = 0; i < this->shader_source.size(); i++)
 		code[i] = this->shader_source[i].c_str();
 
 	glShaderSource(this->shader_id, this->shader_source.size(), code, nullptr);
@@ -63,7 +63,7 @@ bool Shader::Compile()
 	int compile = false;
 
 	glGetShaderiv(this->shader_id, GL_COMPILE_STATUS, &compile);
-	success = (compile == true);
+	success = (compile == GL_TRUE);
 
 	if (!success)
 	{

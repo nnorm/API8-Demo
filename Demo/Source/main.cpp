@@ -16,6 +16,7 @@
 #include "Buffer.h"
 #include "Model.h"
 #include "Soundtrack.h"
+#include "Clock.h"
 
 
 #define  LATENCY
@@ -104,10 +105,7 @@ int main()
 	program.AddUniform(&uProjectionMatrix);
 	program.AddUniform(&uTime);
 
-	std::chrono::high_resolution_clock::time_point starttime = std::chrono::high_resolution_clock::now();
-	std::chrono::high_resolution_clock::time_point lastRtcDtTime = starttime;
-	std::chrono::duration<double> dsec;
-	std::chrono::duration<double> dtsec;
+	Clock& clk = Clock::Global();
 
 	glDisable(GL_CULL_FACE);
 
@@ -116,22 +114,18 @@ int main()
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
-		auto now = std::chrono::high_resolution_clock::now();
-		dsec = now - starttime;
-		dtsec = now - lastRtcDtTime;
-		lastRtcDtTime = now;
-
 		glm::mat4 viewMatrix = glm::lookAt(glm::vec3(0.0f, 10.0f, 20.0f), glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glm::mat4 projectionMatrix = glm::perspective(45.0f, 800.0f / 600.0f, 0.01f, 1000.0f);
 		program.Use();
 		uViewMatrix = viewMatrix;
 		uProjectionMatrix = projectionMatrix;
-		uTime = (float)dsec.count();
+		uTime = float(clk.Elapsed());
 
 #ifdef _DEBUG
 	#ifdef LATENCY
+		double deltatime = clk.RtcDelta();
 		std::ostringstream oss;
-		oss << "Latency : " << dtsec.count() << "ms --------- FPS : " << (1.0 / dtsec.count()) << "fps";
+		oss << "Latency : " << float(deltatime) << "ms --------- FPS : " << (1.0 / deltatime) << "fps";
 		glfwSetWindowTitle(oss.str().c_str());
 	#endif // LATENCY
 #endif

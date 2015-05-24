@@ -11,6 +11,7 @@ public:
 	void stop();
 	void setVolume(float volume);
 	double getDuration();
+	void setPosition(float pos);
 
 private:
 	HSTREAM _mp3Stream;

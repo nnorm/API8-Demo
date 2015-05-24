@@ -162,3 +162,9 @@ void Soundtrack::setVolume(float volume)
 #endif // _DEBUG
 	}
 }
+
+void Soundtrack::setPosition(float pos)
+{
+	QWORD qwBytes = BASS_ChannelSeconds2Bytes(_mp3Stream, double(pos));
+	BASS_ChannelSetPosition(_mp3Stream, qwBytes, BASS_POS_BYTE);
+}
