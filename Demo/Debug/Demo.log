@@ -1,6 +1,9 @@
-﻿  Shader.cpp
-c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : macro redefinition
-          f:\coding\api8\libs\include\gl\glfw.h(74) : see previous definition of 'APIENTRY'
-c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(32): warning C4005: 'WINGDIAPI' : macro redefinition
-          f:\coding\api8\libs\include\gl\glfw.h(91) : see previous definition of 'WINGDIAPI'
-  Demo.vcxproj -> F:\Coding\api8\Debug\Demo.exe
+﻿Build started 5/25/2015 2:36:57 AM.
+     1>Project "C:\Users\nnorm\Desktop\Code\_API8\API8-Demo\Demo\Demo.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         Demo.vcxproj -> C:\Users\nnorm\Desktop\Code\_API8\API8-Demo\Debug\Demo.exe
+     1>Done Building Project "C:\Users\nnorm\Desktop\Code\_API8\API8-Demo\Demo\Demo.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.10

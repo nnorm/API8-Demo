@@ -18,7 +18,6 @@
 #include "Soundtrack.h"
 #include "Clock.h"
 
-
 #define  LATENCY
 
 int main()

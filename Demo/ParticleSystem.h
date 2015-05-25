@@ -14,7 +14,7 @@
 class ParticleSystem
 {
 public:
-	ParticleSystem(std::string geomtryShaderSource);
+	ParticleSystem(std::vector<ParticleEmitter> emitters, unsigned int maxParticles, std::string geomtryShaderSource);
 
 	void update(double dt);
 	void render(glm::mat4* viewMat, glm::mat4* projMat);
@@ -24,8 +24,8 @@ public:
 private:
 	/* Basic attributes of a particle system */
 	glm::vec3 _size;
-	int _maxParticles;
-	std::vector < ParticleEmitter > _emitters;
+	unsigned int _maxParticles;
+	/* Only used in particle system initialization */
 	std::vector < Particle > _particles;
 	/* Needed for the rendering */
 	Shader* _geometryShader;
