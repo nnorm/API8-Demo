@@ -8,10 +8,8 @@ class ParticleEmitter
 {
 public:
 	ParticleEmitter();
-	std::vector< Particle > emit(int quantity);
+	std::vector< Particle > emit(int quantity, glm::vec4* initialColor);
 	~ParticleEmitter();
 private: 
 	glm::vec3 _position;
-	glm::vec3 _velocity;
-	float _radius;
 };

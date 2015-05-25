@@ -11,12 +11,10 @@ public:
 	float getLifeSpan();
 	glm::vec3 getPosition();
 	glm::vec4 getColor();
-	glm::vec3 getVelocity();
 	~Particle();
 
 private: 
-	glm::vec3 _position;
-	glm::vec3 _velocity;
+	glm::vec4 _position;
 	glm::vec4 _color;
 	float _age;
 	float _lifespan;

@@ -38,4 +38,5 @@ private:
 	Buffer* _tfbufferA;
 	Buffer* _tfbufferB;
 	std::vector < std::string > varyings;
+	bool _lastBufferUsed; //true for TFB A, false for TFB B
 };
