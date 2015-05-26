@@ -14,10 +14,10 @@
 class ParticleSystem
 {
 public:
-	ParticleSystem(std::vector<ParticleEmitter> emitters, unsigned int maxParticles, std::string geomtryShaderSource);
+	ParticleSystem(std::vector<ParticleEmitter> emitters, unsigned int maxParticles, std::string geomtryShaderSourcePath, std::string pass1VtxShaderPath, std::string pass2VtxShaderPath, std::string pass2FragShaderPath, glm::mat4* viewMat, glm::mat4* projMat);
 
 	void update(double dt);
-	void render(glm::mat4* viewMat, glm::mat4* projMat);
+	void render();
 
 	~ParticleSystem();
 
@@ -39,4 +39,6 @@ private:
 	Buffer* _tfbufferB;
 	std::vector < std::string > varyings;
 	bool _lastBufferUsed; //true for TFB A, false for TFB B
+	glm::mat4* _viewMat;
+	glm::mat4* _projMat;
 };
