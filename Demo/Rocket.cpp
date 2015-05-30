@@ -62,8 +62,8 @@ void Rocket::Update()
 	if (!s_callbacks)
 	{
 		s_callbacks = new sync_cb;
-		s_callbacks->pause      = [](void* d, int flag) { if (flag) /* Set music to paused */; else /* Set music to unpaused*/; };
-		s_callbacks->is_playing = [](void* d) -> int    { /* return true if paused, false otherwise */ return true;  };
+		s_callbacks->pause = [](void* d, int flag) { if (flag){ ((Rocket*)d)->GetSoundtrack()->pause(); Clock::Global().Pause(); } else { ((Rocket*)d)->GetSoundtrack()->play(); Clock::Global().Pause(false); } };
+		s_callbacks->is_playing = [](void* d) -> int    { /* return true if paused, false otherwise */ if (((Rocket*)d)->GetSoundtrack()->isPaused()) { return true; } else { return false; } };
 		s_callbacks->set_row    = [](void* d, int row)  {
 			double rTime = ((Rocket*)d)->GetTimeFromRow(double(row));
 

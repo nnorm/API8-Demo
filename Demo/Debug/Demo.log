@@ -1,8 +1,8 @@
-﻿Build started 5/26/2015 3:12:15 AM.
+﻿Build started 5/30/2015 10:07:31 PM.
      1>Project "C:\Users\nnorm\Desktop\Code\_API8\API8-Demo\Demo\Demo.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ParticleSystem.cpp
-         ParticleSystem.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Rocket.cpp
+         Rocket.cpp
      1>c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : macro redefinition
                  c:\users\nnorm\desktop\code\_api8\api8-demo\libs\include\gl\glfw.h(74) : see previous definition of 'APIENTRY'
      1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(32): warning C4005: 'WINGDIAPI' : macro redefinition
@@ -27,4 +27,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.01
+Time Elapsed 00:00:11.68

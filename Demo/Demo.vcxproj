@@ -81,7 +81,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <ExecutablePath>$(SolutionDir)\Release;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>$(Solution)\Demo;$(SolutionDir)\Libs\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Demo;$(SolutionDir)\Libs\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\Libs\lib\release;$(LibraryPath)</LibraryPath>
     <SourcePath>$(SolutionDir)\Demo\;$(SourcePath)</SourcePath>
   </PropertyGroup>

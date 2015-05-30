@@ -2,6 +2,7 @@
 
 Soundtrack::Soundtrack(std::string filepath)
 {
+	this->_paused = true;
 	if (!BASS_Init(-1, 44100, NULL, 0, NULL))
 	{
 #ifdef _DEBUG
@@ -112,6 +113,10 @@ void Soundtrack::play()
 		std::cout << "[BASS] Error : " << "Cannot play soundtrack : BASS_Init has not been successfully called!" << std::endl;
 #endif // _DEBUG
 	}
+	else
+	{
+		this->_paused = false;
+	}
 	
 }
 
@@ -124,7 +129,42 @@ void Soundtrack::stop()
 		std::cout << "[BASS] Error : " << "Cannot stop soundtrack : BASS_Init has not been successfully called!" << std::endl;
 #endif // _DEBUG
 	}
+	else
+	{
+		this->_paused = true;
+	}
 	
+}
+
+void Soundtrack::pause()
+{
+	if (!BASS_ChannelPause(this->_mp3Stream))
+	{
+#ifdef _DEBUG
+		int errorCode = BASS_ErrorGetCode();
+		std::string errorString;
+		switch (errorCode)
+		{
+		case BASS_ERROR_NOPLAY:
+			errorString = "channel is not playing";
+			break;
+		case BASS_ERROR_DECODE:
+			errorString = "channel is not playable";
+			break;
+		case BASS_ERROR_ALREADY:
+			errorString = "channel is already paused";
+			break;
+		default:
+			errorString = "unknown error occurred when pausing the channel, complete mystery!";
+			break;
+		}
+		std::cout << "[BASS] Error : " << errorString << std::endl;
+#endif
+	}
+	else
+	{
+		this->_paused = true;
+	}
 }
 
 void Soundtrack::setVolume(float volume)
@@ -167,4 +207,9 @@ void Soundtrack::setPosition(float pos)
 {
 	QWORD qwBytes = BASS_ChannelSeconds2Bytes(_mp3Stream, double(pos));
 	BASS_ChannelSetPosition(_mp3Stream, qwBytes, BASS_POS_BYTE);
+}
+
+bool Soundtrack::isPaused()
+{
+	return this->_paused;
 }

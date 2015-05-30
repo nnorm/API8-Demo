@@ -9,14 +9,13 @@ public:
 
 	float getAge();
 	float getLifeSpan();
-	glm::vec3 getPosition();
+	glm::vec4 getPositionAge();
 	glm::vec4 getColor();
 	~Particle();
 
 private: 
 	glm::vec4 _position;
 	glm::vec4 _color;
-	float _age;
 	float _lifespan;
 };
 

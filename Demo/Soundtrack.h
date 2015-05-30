@@ -9,10 +9,13 @@ public:
 
 	void play();
 	void stop();
+	void pause();
 	void setVolume(float volume);
 	double getDuration();
 	void setPosition(float pos);
+	bool isPaused();
 
 private:
+	boolean _paused;
 	HSTREAM _mp3Stream;
 };

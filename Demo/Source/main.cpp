@@ -17,11 +17,15 @@
 #include "Model.h"
 #include "Soundtrack.h"
 #include "Clock.h"
+#include "Rocket.h"
+
+#include "ParticleSystem.h"
 
 #define  LATENCY
 
 int main()
 {
+	/* Initialization area */
 	int shouldClose = GL_FALSE;
 
 	if (!glfwInit())
@@ -47,18 +51,21 @@ int main()
 		std::cout << "[GLEW] : glew init successful" << std::endl;
 #endif // _DEBUG
 
-	Soundtrack* test = new Soundtrack("Esau-Massaker.mp3");
-
-	glClearColor(0.1f, 0.2f, 0.3f, 1.0f);
+	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 	glClearDepth(1.0f);
 
-	/* Testing area */
+	/* Demo area */
+	Soundtrack* track = new Soundtrack("assets/music/music.mp3");
+	Rocket* rocketrack = new Rocket("assets/rocket/");
+	rocketrack->Connect("localhost");
+	rocketrack->LinkToSoundtrack(track);
+
+	
 	static float vertices[] = { -1.0f, 1.0f, 0.0f, -1.0f, -1.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 0.0f };
-	/* Buffers */
+	/* Buffers initialization area*/
 
 	Buffer vao(VAO);
 	Buffer posVBO(VBO);
-	Buffer nrmVBO(VBO);
 	Buffer ibo(EBO);
 
 	posVBO.bind();
@@ -108,9 +115,12 @@ int main()
 
 	glDisable(GL_CULL_FACE);
 
-	//test->play();
+	track->play();
 	do
 	{
+		/* Updating the rocket track */
+		rocketrack->Update();
+		/* Clearing the screen */
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
 		glm::mat4 viewMatrix = glm::lookAt(glm::vec3(0.0f, 10.0f, 20.0f), glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -129,20 +139,20 @@ int main()
 	#endif // LATENCY
 #endif
 
+		/* Drawing vertices */
 		vao.bind();
 		glDrawElements(GL_TRIANGLES, sizeof(vertices), GL_UNSIGNED_INT, nullptr);
 		vao.unbind();
 
 		program.Unuse();
-
 		glfwSwapBuffers();
 		shouldClose = glfwGetKey(GLFW_KEY_ESC) && glfwGetWindowParam(GLFW_OPENED);
 	} while (!shouldClose);
 	
-	//test->stop();
+	track->stop();
 	program.DetachAll();
 	program.~ShaderProgram();
-	test->~Soundtrack();
+	track->~Soundtrack();
 	glfwTerminate();
 	exit(EXIT_SUCCESS);
 }

@@ -5,13 +5,12 @@ Particle::Particle(glm::vec3* initialPosition, glm::vec4* initalColor, float lif
 {
 	this->_lifespan = lifeSpan;
 	this->_color = *initalColor;
-	this->_position = glm::vec4(initialPosition->x, initialPosition->y, initialPosition->z, this->_age);
+	this->_position = glm::vec4(initialPosition->x, initialPosition->y, initialPosition->z, 0.0f);
 }
 
-glm::vec3 Particle::getPosition()
+glm::vec4 Particle::getPositionAge()
 {
-	glm::vec3 p = glm::vec3(this->_position.x, this->_position.y, this->_position.z);
-	return p;
+	return this->_position;
 }
 
 glm::vec4 Particle::getColor()
