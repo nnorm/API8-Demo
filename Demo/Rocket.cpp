@@ -2,6 +2,20 @@
 #include "Clock.h"
 #include "Soundtrack.h"
 
+/************************************************************************/
+
+Rocket::Track::Track(Rocket* r, const string& name)
+{
+	track_ = sync_get_track(r->GetRawDevice(), name.c_str());
+}
+
+float Rocket::Track::GetValueAt(double row)
+{
+	return sync_get_val(track_, row);
+}
+
+/************************************************************************/
+
 Rocket::Rocket(const string& trackPath)
 {
 	tempo_ = 128.0;
@@ -15,6 +29,11 @@ Rocket::Rocket(const string& trackPath)
 Rocket::~Rocket()
 {
 	sync_destroy_device(syncDevice_);
+}
+
+sync_device* Rocket::GetRawDevice()
+{
+	return syncDevice_;
 }
 
 void Rocket::LinkToSoundtrack(Soundtrack* st)
@@ -81,4 +100,12 @@ void Rocket::Update()
 	int row = int(GetRowFromTime(globalTime));
 	sync_update(syncDevice_, row, s_callbacks, this);
 #endif
+}
+
+Rocket::Track* Rocket::CreateOrGet(const string& name)
+{
+	if (!tracks_.count(name))
+		tracks_[name] = new Rocket::Track(this, name);
+
+	return tracks_[name];
 }

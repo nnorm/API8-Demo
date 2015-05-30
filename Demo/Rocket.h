@@ -4,13 +4,26 @@
 #define SYNC_PLAYER
 
 struct sync_device;
+struct sync_track;
 class Soundtrack;
 
 class Rocket
 {
 public:
+	class Track
+	{
+	public:
+		Track(Rocket* r, const string& name);
+		float GetValueAt(double row);
+
+	private:
+		const sync_track* track_;
+	};
+
 	Rocket(const string& trackPath);
 	~Rocket();
+
+	sync_device* GetRawDevice();
 
 	void LinkToSoundtrack(Soundtrack* st);
 	Soundtrack* GetSoundtrack();
@@ -23,6 +36,8 @@ public:
 	void Connect(const string& host);
 	void Update();
 
+	Track* CreateOrGet(const string& name);
+
 private:
 	sync_device* syncDevice_;
 
@@ -32,4 +47,6 @@ private:
 	double row_;
 
 	Soundtrack* soundtrack_;
+
+	unordered_map<string, Track*> tracks_;
 };
