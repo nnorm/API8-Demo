@@ -33,7 +33,9 @@ public:
 	double GetRowFromTime(double time);
 	double GetTimeFromRow(double row);
 
+#ifdef _DEBUG
 	void Connect(const string& host);
+#endif
 	void Update();
 
 	Track* CreateOrGet(const string& name);
