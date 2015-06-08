@@ -76,7 +76,7 @@ void Rocket::Connect(const string& host)
 #endif
 void Rocket::Update()
 {
-#ifdef SYNC_PLAYER
+#ifdef _DEBUG
 	static sync_cb* s_callbacks = nullptr;
 
 	if (!s_callbacks)
