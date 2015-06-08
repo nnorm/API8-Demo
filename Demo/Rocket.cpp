@@ -68,11 +68,12 @@ double Rocket::GetTimeFromRow(double row)
 	return row / rowRate_;
 }
 
+#ifdef _DEBUG
 void Rocket::Connect(const string& host)
 {
 	sync_connect(syncDevice_, host.c_str(), SYNC_DEFAULT_PORT);
 }
-
+#endif
 void Rocket::Update()
 {
 #ifdef SYNC_PLAYER
