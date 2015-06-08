@@ -82,7 +82,7 @@ void Rocket::Update()
 	{
 		s_callbacks = new sync_cb;
 		s_callbacks->pause = [](void* d, int flag) { if (flag){ ((Rocket*)d)->GetSoundtrack()->pause(); Clock::Global().Pause(); } else { ((Rocket*)d)->GetSoundtrack()->play(); Clock::Global().Pause(false); } };
-		s_callbacks->is_playing = [](void* d) -> int    { /* return true if paused, false otherwise */ if (((Rocket*)d)->GetSoundtrack()->isPaused()) { return true; } else { return false; } };
+		s_callbacks->is_playing = [](void* d) -> int    { return ((Rocket*)d)->GetSoundtrack()->isPaused(); };
 		s_callbacks->set_row    = [](void* d, int row)  {
 			double rTime = ((Rocket*)d)->GetTimeFromRow(double(row));
 
@@ -90,13 +90,12 @@ void Rocket::Update()
 			Clock::Global().Reset();
 			Clock::Global().Offset(rTime);
 
-
 			// Set song position too !
 			((Rocket*)d)->GetSoundtrack()->setPosition(float(rTime));
 		};
 	}
 
-	double globalTime = 0.0 /* global demo clock time */;
+	double globalTime = Clock::Global().Elapsed(); /* global demo clock time */
 	int row = int(GetRowFromTime(globalTime));
 	sync_update(syncDevice_, row, s_callbacks, this);
 #endif

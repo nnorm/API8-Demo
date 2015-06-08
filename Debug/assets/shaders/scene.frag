@@ -6,7 +6,8 @@ float a = 1.0;
 vec3 b = vec3(0.0,0.0,2.2);
 vec3 c = vec3(1.0);
 float d = 0.1;
-float e = abs(sin(uTime));
+//float e = abs(sin(uTime));
+uniform float e;
 
 #define MAX_STEP 128
 #define EPS 0.001
@@ -74,7 +75,7 @@ vec3 disp(vec3 p, float freq, float amp, float offset)
 
 float scene(vec3 p)
 {
-	vec3 s = rotate((p+vec3(0.0,1.5*sin(uTime),0.0)) / vec3(1.0,3.0,1.0),0.0,1.0,1.0,uTime*0.25);
+	vec3 s = rotate((p+vec3(0.0,1.5*e,0.0)) / vec3(1.0,3.0,1.0),0.0,1.0,1.0,uTime*0.25);
 	float octa = octahedron(s*1.5, 64.0, 0.5)/1.5;
 	octa += disp(s, 16.0, 0.1 * a,1.75*sin(uTime*d)).x;
 	octa += (sin(rotate(s + vec3(uTime*d,0.0,0.0),0.0,0.0,1.0,90.0).x * 25.0) * 0.5 + 0.5) * 0.1 * e;
@@ -136,8 +137,8 @@ float ao(vec3 pos, vec3 normal)
 
 void main()
 {
-	vec3 ro = vec3(0.0,-0.25+sin(uTime), 2.5);
-	vec3 rd = normalize(0.0 - vec3(v_uv.x, v_uv.y+sin(uTime), 1.0));
+	vec3 ro = vec3(0.0,-0.25+e, 2.5);
+	vec3 rd = normalize(0.0 - vec3(v_uv.x, v_uv.y+e, 1.0));
 
 	bool hit = false;
 	vec4 rm = raymarch(ro, rd, hit);

@@ -205,8 +205,8 @@ void Soundtrack::setVolume(float volume)
 
 void Soundtrack::setPosition(float pos)
 {
-	QWORD qwBytes = BASS_ChannelSeconds2Bytes(_mp3Stream, double(pos));
-	BASS_ChannelSetPosition(_mp3Stream, qwBytes, BASS_POS_BYTE);
+	QWORD qwBytes = BASS_ChannelSeconds2Bytes(this->_mp3Stream, double(pos));
+	BASS_ChannelSetPosition(this->_mp3Stream, qwBytes, BASS_POS_BYTE);
 }
 
 bool Soundtrack::isPaused()
