@@ -1,0 +1,105 @@
+g++ -std=c++0x -L ./Libs/lib/ -I ./Demo/Inc/ -iquote ./Demo/Inc/ -llibbass.so -llibrocket-player.a -llibGLEW.a -llibglfw.a -c ./Demo/Src/*.cpp ./Demo/Inc/*.h
+In file included from ./Demo/Inc/Buffer.h:2:0,
+                 from ./Demo/Src/Buffer.cpp:1:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+./Demo/Src/Clock.cpp:1:19: fatal error: clock.h: No such file or directory
+ #include "clock.h"
+                   ^
+compilation terminated.
+In file included from ./Demo/Inc/Rocket.h:2:0,
+                 from ./Demo/Src/Rocket.cpp:1:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+In file included from ./Demo/Inc/Shader.h:2:0,
+                 from ./Demo/Src/Shader.cpp:3:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+In file included from ./Demo/Inc/ShaderProgram.h:2:0,
+                 from ./Demo/Src/ShaderProgram.cpp:1:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+In file included from ./Demo/Inc/Soundtrack.h:2:0,
+                 from ./Demo/Src/Soundtrack.cpp:1:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+In file included from ./Demo/Inc/Uniform.h:2:0,
+                 from ./Demo/Src/Uniform.cpp:1:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+./Demo/Src/main.cpp:6:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+./Demo/Inc/Buffer.h:1:9: warning: #pragma once in main file [enabled by default]
+ #pragma once
+         ^
+In file included from ./Demo/Inc/Buffer.h:2:0:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+./Demo/Inc/Clock.h:1:9: warning: #pragma once in main file [enabled by default]
+ #pragma once
+         ^
+./Demo/Inc/Common.h:1:9: warning: #pragma once in main file [enabled by default]
+ #pragma once
+         ^
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+./Demo/Inc/Rocket.h:1:9: warning: #pragma once in main file [enabled by default]
+ #pragma once
+         ^
+In file included from ./Demo/Inc/Rocket.h:2:0:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+./Demo/Inc/Shader.h:1:9: warning: #pragma once in main file [enabled by default]
+ #pragma once
+         ^
+In file included from ./Demo/Inc/Shader.h:2:0:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+./Demo/Inc/ShaderProgram.h:1:9: warning: #pragma once in main file [enabled by default]
+ #pragma once
+         ^
+In file included from ./Demo/Inc/ShaderProgram.h:2:0:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+./Demo/Inc/Soundtrack.h:1:9: warning: #pragma once in main file [enabled by default]
+ #pragma once
+         ^
+In file included from ./Demo/Inc/Soundtrack.h:2:0:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+./Demo/Inc/Uniform.h:1:9: warning: #pragma once in main file [enabled by default]
+ #pragma once
+         ^
+In file included from ./Demo/Inc/Uniform.h:2:0:
+./Demo/Inc/Common.h:4:21: fatal error: GL/glfw.h: No such file or directory
+ #include <GL/glfw.h>
+                     ^
+compilation terminated.
+make: *** [debug] Error 1
+
