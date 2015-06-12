@@ -23,7 +23,7 @@
 
 template<typename T> using vector                    = std::vector<T>;
 template<typename K, typename V> using map           = std::map<K, V>;
-template<typename K, typename V> using tuple         = std::tuple < K, V > ;
+//template<typename K, typename V> using tuple         = std::tuple < K, V > ;
 template<typename K, typename V> using pair          = std::pair < K, V > ;
 template<typename K, typename V> using unordered_map = std::unordered_map < K, V > ;
 template<typename T> using shared_ptr                = std::shared_ptr<T>;

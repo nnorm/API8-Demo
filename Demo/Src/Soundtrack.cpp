@@ -3,7 +3,7 @@
 Soundtrack::Soundtrack(std::string filepath)
 {
 	this->_paused = true;
-	if (!BASS_Init(-1, 44100, NULL, 0, NULL))
+	if (!BASS_Init(-1, 44100, 0, 0, NULL))
 	{
 #ifdef _DEBUG
 		int errorCode = BASS_ErrorGetCode();
