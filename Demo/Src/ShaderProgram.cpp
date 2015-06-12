@@ -21,14 +21,11 @@ void ShaderProgram::Attach(Shader* shader)
 
 void ShaderProgram::Detach(Shader* shader)
 {
-	Shader* p;
-	for(int i=0; i < this->_shaders.size(); i++)
-		if(this->_shaders[i]==shader)
-			p = this->_shaders[i];	
-	if (p != this->_shaders[this->_shaders.size()-1])
+	std::vector<Shader*>::iterator p = std::find(this->_shaders.begin(), this->_shaders.end(), shader);
+	if (p != this->_shaders.end())
 	{
 		glDetachShader(this->_programId, shader->getID());
-		this->_shaders.erase(p); //FIND AN ALTERNATIVE
+		this->_shaders.erase(p);
 	}
 }
 
@@ -81,27 +78,15 @@ void ShaderProgram::AddUniform(Uniform* uniform)
 {
 	this->_uniforms.push_back(uniform);
 #ifdef _DEBUG
-	for(int i = 0; i < this->_uniforms.size(); i++)
-	{
-		if(this->_uniforms[i] != this->_uniforms[this->_uniforms.size()-1])
-		{
-			std::cout << "[GL] Uniform successfully added : " << uniform->getName().c_str() << std::endl;	
-			break;
-		}
-	}	
+	if (std::find(this->_uniforms.begin(), this->_uniforms.end(), uniform) != this->_uniforms.end())
+		std::cout << "[GL] Uniform successfully added : " << uniform->getName().c_str() << std::endl;
 #endif 
 }
 
 void ShaderProgram::DeleteUniform(Uniform* uniform)
 {
-	for(int i = 0; i < this->_uniforms.size(); i++)
-	{
-		if(this->_uniforms[i] != this->_uniforms[this->_uniforms.size()-1])
-		{
-			this->_uniforms.erase(this->_uniforms[i]); //FIND AN ALTERNATIVE
-			break;
-		}
-	}
+	if (std::find(this->_uniforms.begin(), this->_uniforms.end(), uniform) != this->_uniforms.end())
+		this->_uniforms.erase(std::find(this->_uniforms.begin(), this->_uniforms.end(), uniform));
 }
 
 void ShaderProgram::DeleteAllUniforms()

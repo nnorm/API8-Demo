@@ -14,6 +14,7 @@
 #include <tuple>
 #include <unordered_map>
 #include <vector>
+#include <algorithm>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
