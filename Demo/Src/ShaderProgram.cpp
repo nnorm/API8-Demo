@@ -25,10 +25,10 @@ void ShaderProgram::Detach(Shader* shader)
 	for(int i=0; i < this->_shaders.size(); i++)
 		if(this->_shaders[i]==shader)
 			p = this->_shaders[i];	
-	if (p != this->_shaders.end())
+	if (p != this->_shaders[this->_shaders.size()-1])
 	{
 		glDetachShader(this->_programId, shader->getID());
-		this->_shaders.erase(p);
+		this->_shaders.erase(p); //FIND AN ALTERNATIVE
 	}
 }
 
@@ -98,7 +98,7 @@ void ShaderProgram::DeleteUniform(Uniform* uniform)
 	{
 		if(this->_uniforms[i] != this->_uniforms[this->_uniforms.size()-1])
 		{
-			this->_uniforms.erase(this->_uniforms[i]);
+			this->_uniforms.erase(this->_uniforms[i]); //FIND AN ALTERNATIVE
 			break;
 		}
 	}
