@@ -18,9 +18,9 @@ vec3 u_lightPos = vec3(0.0,0.0,2.2);
 vec3 u_lightColor = vec3(1.0);
 float deformSeed = (sin(uTime));
 
-#define MAX_STEP 256
-#define EPS 0.01
-#define MAX_DIST 512.0	
+#define MAX_STEP 192
+#define EPS 0.001
+#define MAX_DIST 256.0
 
 vec3 rotate(vec3 p, float x, float y, float z, float alpha)
 {
@@ -49,8 +49,6 @@ float smin( float a, float b, float k )
 }
 
 /* ----------------------------------------- */
-
-
 
 float octahedron(vec3 p, float e, float r)
 {
@@ -117,7 +115,6 @@ float scene78(vec3 p)
 	
 	float boxes = crossBox(p, 0.1);
 	boxes = min(boxes, crossBox(rotate(p,0.0,1.0,0.0,0.75), 0.075));
-	//boxes += disp(s, 16.0, 0.1 * interferenceIntensity * 0.05,1.75*sin(uTime*timeFactor)).x;
 	float sphereDisp = sphere(p  + vec3(0.0,0.5,0.0), 0.3);
 	sphereDisp += disp(s, 16.0, 0.1 * interferenceIntensity,1.75*sin(uTime*timeFactor)).x;
 	sphereDisp += (sin(rotate(s + vec3(uTime*timeFactor,0.0,0.0),0.0,0.0,1.0,90.0).x * 25.0 * waveIntensity) * 0.5 + 0.5) * 0.1 * deformSeed;
@@ -160,7 +157,6 @@ vec4 raymarch(in vec3 ro, in vec3 rd, out bool hit)
 			hit = (currentDistance < EPS);
 			return toReturn;
 		}
-		
 		currentDistance = scene(p);
 		p += rd * currentDistance;
 		d += currentDistance;
@@ -172,7 +168,7 @@ vec4 raymarch(in vec3 ro, in vec3 rd, out bool hit)
 
 void main()
 {
-	vec3 ro = cameraPos;//* vec3(1.0,-5.6,1.0);//vec3(0.0,-5.6*camY, 2.5);
+	vec3 ro = cameraPos;
 	vec3 rd = rotate(vec3(v_uv.x, v_uv.y, cameraFoV), cameraOrientationAxis.x, cameraOrientationAxis.y, cameraOrientationAxis.z, cameraOrientationAngle);
 	rd = 0.0 - rd;
 	rd = normalize(rd);
