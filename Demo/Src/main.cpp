@@ -65,7 +65,9 @@ int main()
 	/* Demo area */
 	Soundtrack* track = new Soundtrack("assets/music/music.mp3");
 	Rocket* rocketrack = new Rocket("assets/rocket/");
+#ifdef _DEBUG
 	rocketrack->Connect("localhost");
+#endif // _DEBUG
 	rocketrack->LinkToSoundtrack(track);
 	rocketrack->SetRowsPerBeat(8);
 
